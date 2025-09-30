@@ -13,8 +13,10 @@ import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.Normalizer;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 
 public class Main {
@@ -71,20 +73,34 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        Long l = 356985L;
+        System.out.println(l.toString().startsWith("2"));
 
-        Integer test = null;
 
-        if( test == 0 ) {
-            System.out.println("null ou zero");
-        } else {
-            System.out.println("test ");
-        }
+        BigDecimal vatPercentageDivided = BigDecimal.valueOf(0).divide(BigDecimal.valueOf(100), 10, RoundingMode.HALF_UP);
+        BigDecimal globalHtAmount = BigDecimal.valueOf(100).divide(vatPercentageDivided, 10, RoundingMode.HALF_UP);
+
+//        Integer test = null;
+//
+//        if( test == 0 ) {
+//            System.out.println("null ou zero");
+//        } else {
+//            System.out.println("test ");
+//        }
 //        String str = "\"test\"";
 //        System.out.println(str.replace('"', ' ').trim());
-        BigDecimal cal = new BigDecimal(6).divide(new BigDecimal(3), 0, RoundingMode.CEILING);
-
-
-        System.out.println(cal.intValue());
+//        BigDecimal cal = new BigDecimal(6).divide(new BigDecimal(3), 0, RoundingMode.CEILING);
+//
+//
+//        Random random = new Random();
+//        System.out.println(random.nextInt(10000));
+//        String input = "été à l'a voiture";
+//        String normalized = Normalizer.normalize(input, Normalizer.Form.NFD);
+//        System.out.println(input);
+//        System.out.println(normalized);
+//        System.out.println(normalized.replaceAll("\\p{M}", ""));
+//        System.out.println(new BigDecimal("20,512".replace(",", ".")).setScale(2, RoundingMode.HALF_EVEN).doubleValue());
+//        System.out.println(cal.intValue());
 
 //        System.out.println(" start main");
 //
