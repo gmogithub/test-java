@@ -17,6 +17,7 @@ import java.text.Normalizer;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.regex.Pattern;
 
 
 public class Main {
@@ -73,12 +74,18 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Long l = 356985L;
-        System.out.println(l.toString().startsWith("2"));
 
 
-        BigDecimal vatPercentageDivided = BigDecimal.valueOf(0).divide(BigDecimal.valueOf(100), 10, RoundingMode.HALF_UP);
-        BigDecimal globalHtAmount = BigDecimal.valueOf(100).divide(vatPercentageDivided, 10, RoundingMode.HALF_UP);
+        System.out.println(Pattern.compile("\t")
+                .matcher("dkfsl lskdljsdf\tsljflsjd    kjsdlfjsdf")
+                .results()
+                .count());
+//        Long l = 356985L;
+//        System.out.println(l.toString().startsWith("2"));
+//
+//
+//        BigDecimal vatPercentageDivided = BigDecimal.valueOf(0).divide(BigDecimal.valueOf(100), 10, RoundingMode.HALF_UP);
+//        BigDecimal globalHtAmount = BigDecimal.valueOf(100).divide(vatPercentageDivided, 10, RoundingMode.HALF_UP);
 
 //        Integer test = null;
 //
