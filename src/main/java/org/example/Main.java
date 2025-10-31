@@ -3,6 +3,7 @@ package org.example;
 import org.example.enums.Module2035StepEnum;
 import org.example.enums.Module2035TypeEnum;
 import org.example.enums.OdTypeEnum;
+import org.example.utils.FreeMarkerUtils;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -14,6 +15,8 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.Normalizer;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -75,11 +78,21 @@ public class Main {
 
     public static void main(String[] args) {
 
-
-        System.out.println(Pattern.compile("\t")
-                .matcher("dkfsl lskdljsdf\tsljflsjd    kjsdlfjsdf")
-                .results()
-                .count());
+        System.out.println(new FreeMarkerUtils.Freemarker("test", "toto"));
+        System.out.println(
+                FreeMarkerUtils.replace("<div style=\"display: flex; flex-direction: column; height: 1082.6px; padding: 5px 20px; background-color: ${COLOR}; color: rgb(29, 27, 27); font-family: &quot;Roboto Serif Variable&quot;, serif;\"><div style=\"margin-bottom: 20px;\"><div style=\"display: flex; flex-direction: column;\"><div style=\"display: flex;\"><div style=\"flex: 1 1 0%; display: flex; flex-direction: column; gap: 10px;\"><h2 style=\"font-weight: 400;\">Facture </h2><div><div style=\"display: flex; align-items: center;\"><span style=\"letter-spacing: 0.0333em; line-height: 1.66; font-size: 0.75rem; flex: 1 1 0%; font-weight: bold;\">Numéro facture</span><span id=\"elt-invoice-number\" style=\"letter-spacing: 0.0333em; line-height: 1.66; font-size: 0.75rem; flex: 1.5 1 0%;\">${NUMBER_INVOICE}</span></div><div style=\"display: flex; align-items: center;\"><span style=\"letter-spacing: 0.0333em; line-height: 1.66; font-size: 0.75rem; flex: 1 1 0%; font-weight: bold;\">Date d'émission</span><span style=\"letter-spacing: 0.0333em; line-height: 1.66; font-size: 0.75rem; flex: 1.5 1 0%;\">${NUMBER_INVOICE}</span></div><div style=\"display: flex; align-items: center;\"><span style=\"letter-spacing: 0.0333em; line-height: 1.66; font-size: 0.75rem; flex: 1 1 0%; font-weight: bold;\">Date d'échéance</span><span style=\"letter-spacing: 0.0333em; line-height: 1.66; font-size: 0.75rem; flex: 1.5 1 0%;\">15/11/2025</span></div></div></div><div style=\"flex: 1 1 0%; display: flex; align-items: center; justify-content: flex-end;\"></div></div></div></div><div style=\"margin-bottom: 20px;\"><div style=\"display: flex; gap: 2px;\"><div style=\"flex: 1 1 0%;\"><div><h6 style=\"margin: 0px; font-size: 0.875rem; font-weight: 600; line-height: 1.57; letter-spacing: 0.00714em;\">MADAME MARINE BURGER</h6><span style=\"letter-spacing: 0.0333em; line-height: 1.66; font-size: 0.75rem; flex: 1 1 0%; display: block;\">119 AVENUE  des alpes</span><span style=\"letter-spacing: 0.0333em; line-height: 1.66; font-size: 0.75rem; flex: 1 1 0%; display: block;\">06800 Cagnes sur mer</span><span style=\"letter-spacing: 0.0333em; line-height: 1.66; font-size: 0.75rem; flex: 1 1 0%; display: block;\">FRANCE</span></div></div><div style=\"flex: 1 1 0%; display: flex; justify-content: flex-end;\"><div><div><h6 style=\"margin: 0px; font-size: 0.875rem; font-weight: 600; line-height: 1.57; letter-spacing: 0.00714em;\">CABINET DU DOCTEUR ILAN ZERBIB</h6><span style=\"letter-spacing: 0.0333em; line-height: 1.66; font-size: 0.75rem; flex: 1 1 0%; display: block;\">7 PLACE DE LA REPUBLIQUE</span><span style=\"letter-spacing: 0.0333em; line-height: 1.66; font-size: 0.75rem; flex: 1 1 0%; display: block;\">13700 MARIGNANE</span><span style=\"letter-spacing: 0.0333em; line-height: 1.66; font-size: 0.75rem; flex: 1 1 0%; display: block;\">FRANCE</span></div></div></div></div></div><div style=\"margin-bottom: 40px; margin-top: 30px;\"></div><div style=\"margin-bottom: 20px;\"><div><table width=\"100%\" cellspacing=\"0\"><thead><tr><td align=\"center\" style=\"margin: 1px; font-size: 16px;\"><div style=\"padding: 4px; background-color: rgb(138, 130, 130); border-radius: 5.6px; color: rgb(0, 0, 0);\">Quantité</div></td><td align=\"center\" width=\"300\" style=\"margin: 1px; font-size: 16px;\"><div style=\"padding: 4px; background-color: rgb(138, 130, 130); border-radius: 5.6px; color: rgb(0, 0, 0);\">Description</div></td><td align=\"center\" style=\"margin: 1px; font-size: 16px;\"><div style=\"padding: 4px; background-color: rgb(138, 130, 130); border-radius: 5.6px; color: rgb(0, 0, 0);\">PU HT</div></td><td align=\"center\" style=\"margin: 1px; font-size: 16px;\"><div style=\"padding: 4px; background-color: rgb(138, 130, 130); border-radius: 5.6px; color: rgb(0, 0, 0);\">TVA</div></td><td align=\"center\" style=\"margin: 1px; font-size: 16px;\"><div style=\"padding: 4px; background-color: rgb(138, 130, 130); border-radius: 5.6px; color: rgb(0, 0, 0);\">Total HT</div></td></tr></thead><tbody><tr style=\"background-color: rgb(255, 255, 255); color: rgb(29, 27, 27);\"><td align=\"center\" style=\"font-size: 12px; padding: 5px; border-bottom: 1px solid rgb(0, 0, 0);\">1</td><td style=\"font-size: 12px; padding: 5px; border-bottom: 1px solid rgb(0, 0, 0);\"><p style=\"font-weight: bold; padding: 0px; margin: 0px;\">test</p><div style=\"padding: 4px;\"><p style=\"margin: 0px;\">32323</p></div></td><td align=\"right\" style=\"font-size: 12px; padding: 5px; border-bottom: 1px solid rgb(0, 0, 0);\">100,00€</td><td align=\"center\" style=\"font-size: 12px; padding: 5px; border-bottom: 1px solid rgb(0, 0, 0);\">10%</td><td align=\"right\" style=\"font-size: 12px; padding: 5px; border-bottom: 1px solid rgb(0, 0, 0);\">100,00€</td></tr></tbody></table></div></div><div style=\"margin-bottom: 20px;\"><div style=\"display: flex; justify-content: flex-end; padding: 5px; background-color: rgb(255, 255, 255); color: rgb(29, 27, 27);\"><div style=\"min-width: 200px;\"><div style=\"display: flex;\"><div style=\"letter-spacing: 0.0333em; line-height: 1.66; font-size: 0.75rem; font-weight: bold; padding-right: 50px; flex: 2 1 0%; white-space: nowrap;\">Total HT</div><div style=\"letter-spacing: 0.0333em; line-height: 1.66; font-size: 0.75rem; display: flex; justify-content: flex-end; flex: 1 1 0%; white-space: nowrap;\">100,00€</div></div><div style=\"display: flex;\"><div style=\"letter-spacing: 0.0333em; line-height: 1.66; font-size: 0.75rem; font-weight: bold; padding-right: 50px; flex: 2 1 0%; white-space: nowrap;\">TVA 10 %</div><div style=\"letter-spacing: 0.0333em; line-height: 1.66; font-size: 0.75rem; display: flex; justify-content: flex-end; flex: 1 1 0%; white-space: nowrap;\">10,00€</div></div><div style=\"display: flex;\"><div style=\"letter-spacing: 0.0333em; line-height: 1.66; font-size: 0.75rem; font-weight: bold; padding-right: 50px; flex: 2 1 0%; white-space: nowrap;\">Total TTC</div><div style=\"letter-spacing: 0.0333em; line-height: 1.66; font-size: 0.75rem; display: flex; justify-content: flex-end; flex: 1 1 0%; white-space: nowrap;\">110,00€</div></div></div></div></div><div style=\"margin-bottom: 20px;\"></div><div style=\"flex: 1 1 0%; display: flex; align-items: center;\"><div style=\"display: flex; flex-direction: column; gap: 2px; padding-left: 10px; padding-right: 10px;\"><div style=\"font-size: 10px;\">Termes et conditions</div><div style=\"letter-spacing: 0.0333em; line-height: 1.5; font-size: 10px; opacity: 0.5;\">En cas de retard de paiement, seront exigibles, conformément au code de commerce, une indemnité calculée sur la base de trois fois le taux de l'intérêt légal en vigueur ainsi qu'une indemnité forfaitaire pour frais de recouvrement de 40€. Pas d'escompte en cas de paiement anticipé.</div></div></div><div><div><div style=\"display: flex; justify-content: center; align-items: center; flex-wrap: wrap;\"><div style=\"letter-spacing: 0.0333em; line-height: 1.66; font-size: 0.75rem; padding-left: 2px; white-space: nowrap;\">BNC</div><div style=\"padding-left: 2px;\">/</div><div style=\"letter-spacing: 0.0333em; line-height: 1.66; font-size: 0.75rem; padding-left: 2px; white-space: nowrap;\">APE 8621Z</div></div><div style=\"display: flex; justify-content: center; align-items: center; flex-wrap: wrap;\"><div style=\"letter-spacing: 0.0333em; line-height: 1.66; font-size: 0.75rem; padding-left: 2px; white-space: nowrap;\">SIRET: <b>79297160800031</b></div></div></div></div></div>",
+                        List.of(new FreeMarkerUtils.Freemarker("NUMBER_INVOICE", "F-20250131"), new FreeMarkerUtils.Freemarker("COLOR", "red")))
+        );
+//        System.out.println(LocalDate.now().getMonthValue());
+//        List<String> list = new ArrayList<>();
+//        list.add("test");
+//
+//        System.out.println(list.stream().findFirst() +" ");
+//
+//        System.out.println(Pattern.compile("\t")
+//                .matcher("dkfsl lskdljsdf\tsljflsjd    kjsdlfjsdf")
+//                .results()
+//                .count());
 //        Long l = 356985L;
 //        System.out.println(l.toString().startsWith("2"));
 //
@@ -201,27 +214,27 @@ public class Main {
 //
 //        System.out.println(endDate);
 
-        List<String> list = new java.util.ArrayList<>(List.of("test"));
-        list.add("test2");
-        ClassLoader classLoader = ClassLoader.getSystemClassLoader();
-
-        try {
-            Package[] packages = classLoader.getDefinedPackages();
-
-            for (Package pkg : packages) {
-//                System.out.println(pkg);
-            }
-//            Arrays.stream(classLoader.getDefinedPackages()).forEach(p -> {
-//                System.out.println(p.getName());
-//                for (Annotation annotation : p.getAnnotations()) {
-//                    System.out.println(annotation.getClass().getName());
-//                }
-//            });
-//            Class<?> clazz = classLoader.loadClass("org.example.entity.Test");
-//            System.out.println(clazz.isAnnotationPresent(org.example.annotation.Test.class));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+//        List<String> list = new java.util.ArrayList<>(List.of("test"));
+//        list.add("test2");
+//        ClassLoader classLoader = ClassLoader.getSystemClassLoader();
+//
+//        try {
+//            Package[] packages = classLoader.getDefinedPackages();
+//
+//            for (Package pkg : packages) {
+////                System.out.println(pkg);
+//            }
+////            Arrays.stream(classLoader.getDefinedPackages()).forEach(p -> {
+////                System.out.println(p.getName());
+////                for (Annotation annotation : p.getAnnotations()) {
+////                    System.out.println(annotation.getClass().getName());
+////                }
+////            });
+////            Class<?> clazz = classLoader.loadClass("org.example.entity.Test");
+////            System.out.println(clazz.isAnnotationPresent(org.example.annotation.Test.class));
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
 
     }
 }
